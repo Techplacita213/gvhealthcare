@@ -1,0 +1,188 @@
+.appointment{
+    margin: 10px;
+}
+/* .effect{    border: 0;
+    transition: 0.4s;
+}
+.effect:focus{
+    padding: 5px 14pxpx 7px;
+    transition: 0.4s;
+}
+.effect ~.focus-border{
+    position:absolute;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    transition: 0.4s;
+}
+.effect:focus~.focus-border{
+    height: 36px;
+    border: 2px solid #3399FF;
+    z-index: 1;
+    transition: 0.4s;
+} 
+*/
+.appointment-form{
+    padding: 11px;
+    margin: 15px;
+    display: grid;
+    grid-template-columns: auto 2px auto 2px  50px;
+    column-gap: 5px;
+    /* width:fit-content; */
+    width: 90%;
+    background-color: white;
+    border-radius: 8px;
+}
+input{
+    width: 100%;
+    font-size: 17px;
+
+}
+i{
+    width: fit-content;
+}
+.borderless-input{
+    outline: none;
+    border: none;
+    padding: 5px;
+    margin: 6px;
+    width: 100%;
+    
+}
+.division{
+    height: 100%;
+    width: 1px;
+    background-color: gray;
+}
+.input{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    border-radius: 2px;
+    height: 40px;
+    align-items: center;
+   
+}
+.input:focus{
+    padding: 5px 14px;
+}
+
+.forms{
+    padding:5px;
+    /* background-color: brown; */
+    flex-direction: row;
+}
+
+.width-50{
+    width: 50% !important;
+}
+
+.doctors{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top:3.5%;
+    padding-bottom: 3.5%;
+    margin: auto;
+}
+
+
+.doctor-card{
+    width: 370px;
+    background-color: white;
+    padding: 10px;
+    padding-top: 15px;
+    border-radius: 7px;
+    margin:10px;
+    font-family: sharp-sans-medium, fallback-font, Arial, sans-serif;
+    
+}
+
+.doctor-card:hover{
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+.doctor-name{
+    font-size: 22px;
+    font-weight: 700;
+    color: #00234b;
+}
+.doctor-post{
+    font-size: 16px;
+    font-weight: 400;
+}
+.doctor-des{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #00234b;
+    font-size: 17px;
+}
+
+.view{
+    font-size: 17px;
+    color: #00234b;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+.articles{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 11px;
+    padding-top: 20px;
+}
+.article{
+    display: block;
+    width: 325px;
+    height: auto;
+    max-height: 450px;
+    margin:10px;
+    background-color: white;
+    padding-bottom: 10px ;
+    border-radius: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+  }
+  .article:hover{
+     position: fixed;
+     top:50px;
+     bottom:50px;
+     left: 50px;
+     right: 50px;
+     width: auto;
+     max-height: 100%;
+     box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+     color: white;
+     z-index: 1;
+  }
+  .article:hover .article-text{
+      background-color: rgba(0,0,0,0.7);
+      position: absolute;
+      top: 0;
+      bottom:0;
+      right:0;
+      left: 0;
+      overflow: scroll;
+  }
+  .article:hover img{
+      position: absolute;
+      height: auto;
+      width: 100% !important;
+      z-index: -1;
+  }
+  @media screen and (max-width:500px) {
+    .article:hover img{
+        position: absolute;
+        height: 100% !important;
+        width: auto !important;
+        z-index: -1;
+    }
+  }
+  @keyframes articleHover{
+      from{width: 300px;}
+      to{width: 100%;max-height: 100%;}
+  }

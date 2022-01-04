@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    
+</head>
+<style>
+    input{
+        margin: 10px;
+        padding: 10px;
+    }
+    button{
+        margin: 10px;
+        height: 40px;
+        border:none;
+        background-color: #8b5cf6;
+        font-size: 20px;
+        color: white;
+    }
+</style>
+<body>
+        <div style="display: flex;flex-direction: column;margin: auto;width: 400px;">
+            <input id="np"  type="password" placeholder="New password"/>
+            <input id="p" type="password" placeholder="Confirm password"/>
+            <button onclick="submit()">Submit</button>
+        </div>
+    <script>
+        function submit(){
+            const np=document.getElementById("np").value
+            const p=document.getElementById("p").value
+            const url=window.location.href.split('/')
+            const id=url[url.length-2]
+            
+            if(p!=np)
+                return alert("Passwords dont match!")
+            fetch('/api/admin/changePassword',{
+                method:"POST",
+                headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify({p:p,id:id})
+            }).then((res)=>{
+                return res.json()
+            }).then((data)=>{
+                alert("Successfully Changed!")
+            }).catch(err=>{
+                alert('Something Went Wrong')
+            })
+        }
+    </script>
+</body>
+</html>
