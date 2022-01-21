@@ -1,0 +1,48 @@
+Arguments: 
+  /usr/local/bin/node /usr/bin/yarn add react-calendar
+
+PATH: 
+  /home/rishabh/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  15.13.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: ENOTEMPTY: directory not empty, rmdir '/media/rishabh/01D7236459B317D0/Projects/SlotBooking/server/node_modules/bcrypt/lib/binding/napi-v3'
+
+npm manifest: 
+  {
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Rishabh",
+    "license": "ISC",
+    "dependencies": {
+      "bcrypt": "^5.0.1",
+      "cookie-parser": "^1.4.5",
+      "crypto": "^1.0.1",
+      "dotenv": "^8.2.0",
+      "express": "^4.17.1",
+      "jsonwebtoken": "^8.5.1",
+      "mongoose": "^5.12.4",
+      "node-cron": "^3.0.0",
+      "razorpay": "^2.0.6",
+      "shortid": "^2.2.16"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
