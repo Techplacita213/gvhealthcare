@@ -89,7 +89,7 @@ export default function Book() {
             window.location.href="/"
         }
         axios.post(LIVE_URL+'api/service/get_by_id',{
-            id:book.sService
+            _id:book.sService
         }).then((res)=>{
             setState({...state,serviceName:res.data.name,charge:res.data.charge})
         }).catch(err=>{

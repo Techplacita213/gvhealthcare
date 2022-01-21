@@ -14,6 +14,9 @@ import Report from './Pages/Report';
 import {uploadFile} from './util/upload'
 import swal from 'sweetalert'
 import Articles from './Components/Articles'
+import AddSlots from './Pages/AddSlots'
+import ManageServices from './Pages/ManageServices'
+import ManageSession from './Pages/ManageSession'
 
 dotenv.config()
 
@@ -122,7 +125,10 @@ function Register({handleBack}){
               {/* <img src={PadLock} width="22px" className="mr-1"/> */}
                 <input name="confirmPassword" placeholder="Confirm Password" type="password" required={true} value={stateLogin.confirmPassword} onChange={onChangeHandler} className=" h-11 w-full bg-transparent"  style={{outline:"none"}}/>
             </div>
-            
+             <div className='m-2 mr-4 w-full'>
+               <label>Proof</label>
+             </div>
+              
               {/* <img src={PadLock} width="22px" className="mr-1"/> */}
                 <input name="proof"  type="file" required={true}  onChange={onChangeHandlerFile} className=" h-11 w-full bg-transparent"  style={{outline:"none"}}/>
         
@@ -229,6 +235,15 @@ function MainApp(){
             </Route>
             <Route exact path="/articles">
               <Articles/>
+            </Route>
+            <Route exact path="/ManageSlots">
+              <AddSlots/>
+            </Route>
+            <Route exact path="/ManageSession">
+              <ManageSession/>
+            </Route>
+            <Route exact path="/ManageServices">
+              <ManageServices/>
             </Route>
           </Switch>
         </div>

@@ -7,6 +7,14 @@ import {FaCalendarCheck,FaServicestack, FaCog, FaCalendar} from 'react-icons/fa'
     let location = useLocation();
     return (
         <div style={{boxShadow:"0px 0px 10px rgba(0,0,0,0.2)",zIndex:'2'}} className="w-72 h-screen bg-white">
+           <Link
+            to="/ManageServices"
+            className={`w-full p-4 cursor-pointer flex flex-row items-center block  border-b-0 border  border-gray-200 text-grey-100 font-sm 
+             ${location.pathname === "/ManageServices" ?"bg-gray-200":"text-darkgray"}
+            `}
+          >
+           <FaServicestack style={{marginRight:"20px"}}/> <div>Manage Services</div>
+          </Link>
           <Link
             to="/pay"
             className={`w-full p-4 cursor-pointer flex flex-row items-center block  border border-gray-200  text-grey-100 font-sm 

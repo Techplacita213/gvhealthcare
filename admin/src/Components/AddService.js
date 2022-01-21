@@ -88,42 +88,42 @@ const AddSession=({state,setState,reload})=>{
                         <input  className="p-0 mb-2 rounded-md" value={session.end} style={{border:"solid gray 1px",paddingLeft:"4px"}} type="time" name="end"  onChange={onChangeHandler}/>
                     </div>
                 </div>
-                <div className="flex flex-row flex-wrap items-center">
-                    <div className="m-1">
-                    <input type="checkbox" className="mr-1" checked={session.days.includes("monday")?1:0} name="monday" onChange={checkHandler}/>
+                <div style={{width:'100%'}} className="flex flex-row flex-wrap items-center">
+                    <span className="m-1 flex flex-row w-18 items-center" style={{width:"100px"}}>
+                    <input type="checkbox" className="mr-1 larger" checked={session.days.includes("monday")?1:0} name="monday" onChange={checkHandler}/>
                     <label >Monday</label>
                         
-                    </div>
-                    <div className="m-1">
+                    </span>
+                    <span className="m-1 flex flex-row w-18 items-center" style={{width:"100px"}}>
                         
-                        <input type="checkbox" className="mr-1" checked={session.days.includes("tuesday")?1:0} name="tuesday" onChange={checkHandler}/>
+                        <input type="checkbox" className="mr-1 larger" checked={session.days.includes("tuesday")?1:0} name="tuesday" onChange={checkHandler}/>
                         <label >Tuesday</label>
-                    </div>
-                    <div className="m-1">
+                    </span>
+                    <span className="m-1 flex flex-row w-18 items-center" style={{width:"100px"}}>
                         
-                        <input className="mr-1" type="checkbox" checked={session.days.includes("wednesday")?1:0} name="wednesday" onChange={checkHandler}/>
+                        <input className="mr-1 larger" type="checkbox" checked={session.days.includes("wednesday")?1:0} name="wednesday" onChange={checkHandler}/>
                         <label >Wednesday</label>
-                    </div>
-                    <div className="m-1">
+                    </span>
+                    <span className="m-1 flex flex-row w-18 items-center" style={{width:"100px"}}>
                       
-                        <input className="mr-1" type="checkbox" checked={session.days.includes("thrusday")?1:0} name="thrusday" onChange={checkHandler}/>
+                        <input className="mr-1 larger" type="checkbox" checked={session.days.includes("thrusday")?1:0} name="thrusday" onChange={checkHandler}/>
                         <label >Thrusday</label>
-                    </div>
-                    <div className="m-1">
+                    </span>
+                    <span className="m-1 flex flex-row w-18 items-center" style={{width:"100px"}}>
                         
-                        <input className="mr-1" type="checkbox" checked={session.days.includes("friday")?1:0} name="friday" onChange={checkHandler}/>
+                        <input className="mr-1 larger" type="checkbox" checked={session.days.includes("friday")?1:0} name="friday" onChange={checkHandler}/>
                         <label >Friday</label>
-                    </div>
-                    <div className="m-1">
+                    </span>
+                    <span className="m-1 flex flex-row w-18 items-center" style={{width:"100px"}}>
                         
-                        <input  className="mr-1" type="checkbox" name="saturday" checked={session.days.includes("saturday")?1:0} onChange={checkHandler}/>
+                        <input  className="mr-1 larger" type="checkbox" name="saturday" checked={session.days.includes("saturday")?1:0} onChange={checkHandler}/>
                         <label>Saturday</label>
-                    </div>
-                    <div className="m-1">
+                    </span>
+                    <span className="m-1 flex flex-row w-18 items-center" style={{width:"100px"}}>
                         
-                        <input className="mr-1" type="checkbox" name="sunday" checked={session.days.includes("sunday")?1:0} onChange={checkHandler}/>
+                        <input className="mr-1 larger" type="checkbox" name="sunday" checked={session.days.includes("sunday")?1:0} onChange={checkHandler}/>
                         <label>Sunday</label>
-                    </div>
+                    </span>
                 </div>
                 <button type="submit"  className="text-white p-1 bg-gray-500 m-auto w-48 mt-3 mb-2">{state.editMode?"Update":"Submit"}</button>
             </form>
@@ -204,7 +204,7 @@ export default function AddService({state,setState,reload}) {
             <div  className="flex flex-col p-4 mt-8">
             <div className="mb-4">
                 <label className="text-darkgray mr-2">Service Name </label>
-                <input className="p-2 mb-2 rounded-md" value={edit.ename} style={{border:"solid gray 1px"}} name="ename" className="w-52"  onChange={onChangeHandler}/>
+                <input readOnly className="p-2 mb-2 rounded-md" value={edit.ename} style={{border:"solid gray 1px"}} name="ename" className="w-52"  onChange={onChangeHandler}/>
             </div>
             <div className="flex flex-row items-center">
                 <label className="text-darkgray mr-2 flex flex-row items-center" style={{marginRight:"28px"}}>Description </label>

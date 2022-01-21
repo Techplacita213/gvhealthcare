@@ -80,11 +80,12 @@ export default function Home() {
             <div className="doctors">
                 {
                     state.doctors.map((obj)=>{
+                        console.log(obj.profilePic)
                         return (
                             <div className="doctor-card" onClick={()=>addDocId(obj._id)}>
                                 <div className="flex flex-row items-center w-100" style={{justifyContent:"space-between"}}>
-                                    <div style={{backgroundImage:`url(${obj.profilePic}})`,width:"70px",height:"70px",borderRadius:"50%",backgroundPosition:"center center",backgroundSize:"cover"}}>
-
+                                    <div style={{width:"70px",height:"70px",borderRadius:"50%",overflow:"hidden",backgroundPosition:"center center",backgroundSize:"cover"}}>
+                                        <img src = {obj.profilePic} width="70px" height="70px"/>
                                     </div>
                                     <div style={{width:"265px"}}>
                                         <p className="doctor-name">{obj.name}</p>

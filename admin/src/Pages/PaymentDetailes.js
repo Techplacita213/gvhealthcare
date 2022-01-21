@@ -19,7 +19,7 @@ export default function PaymentDetailes() {
         by:""
     })
     useEffect(()=>{
-        axios.post(LIVE_URL+'api/slot/get_booked_paginate',{currentPage:state.currentPage,name:name}).then((res)=>{
+        axios.post(LIVE_URL+'api/slot/get_booked_paginate',{currentPage:state.currentPage,name:name},{withCredentials:true}).then((res)=>{
             let arr=[]
             if(res.data.pageCount<5){
                 for(let i=0;i<res.data.pageCount;i++){
@@ -34,7 +34,7 @@ export default function PaymentDetailes() {
         }).catch(err=>console.log(err))
     },[state.refresh])
     function pageClick(page){
-        axios.post(LIVE_URL+'api/slot/get_booked_paginate',{currentPage:page,toSort:state.toSort,by:state.by,name:name}).then((res)=>{
+        axios.post(LIVE_URL+'api/slot/get_booked_paginate',{currentPage:page,toSort:state.toSort,by:state.by,name:name},{withCredentials:true}).then((res)=>{
             setState({...state,bookedSlots:res.data.bookedSlots,pageCount:res.data.pageCount,currentPage:page})
         }).catch(err=>console.log(err))
     }
@@ -49,7 +49,7 @@ export default function PaymentDetailes() {
           })
           .then((willDelete) => {
             if (willDelete) {
-                axios.post(LIVE_URL+'api/pay/refund',{tid:tid,amount:parseInt(amount)}).then((res)=>{
+                axios.post(LIVE_URL+'api/pay/refund',{tid:tid,amount:parseInt(amount)},{withCredentials:true}).then((res)=>{
                     swal("Will be refunded!", {
                         icon: "success",
                       })

@@ -22,7 +22,7 @@ var instance = new Razorpay({
 
 
 module.exports.get_orderId=async (req,res)=>{
-    const {serviceId,sId,date,name,email,phone}=req.body
+    const {serviceId,sId,date,name,email,phone,id}=req.body
     if(!serviceId||!sId||!date)
         return res.status(400).send({message:"plz send all info!"})
     const slot = await Slot.findOne({_id:sId})
@@ -96,6 +96,7 @@ module.exports.razorpay=async (req,res)=>{
 
 
 	if (digest === req.headers['x-razorpay-signature']) {
+        console.log(req.body.payload)
 		const {id,order_id,error_code}=req.body.payload.payment.entity
         if(error_code){
             await BookSlot.deleteOne({order_id:order_id})
@@ -114,7 +115,7 @@ module.exports.razorpay=async (req,res)=>{
 } 
 module.exports.refund=async (req,res)=>{
     const {tid,amount}=req.body
-    axios.post(`https://rzp_test_T4VluIcPFfK6pS:XdPnxVKpNbn6T9mRf4bhFVOx@api.razorpay.com/v1/payments/${req.body.tid}/refund`,{amount:amount}).then((res2)=>{
+    axios.post(`https://rzp_test_JKeEnNSDHaPfk5:XRdKuaCxpj63LwQWkC8jSomK@api.razorpay.com/v1/payments/${req.body.tid}/refund`,{amount:amount}).then((res2)=>{
         
         BookSlot.deleteOne({tid:tid}).then((err,del)=>{
             if(err)

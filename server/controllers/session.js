@@ -61,62 +61,60 @@ const compare3=(a,b)=>{
 
 
 module.exports.add_session = async (req,res)=>{
-    const {docid} = req.body
-    let {name,end,days,start} =req.body
-    start ="09:00"
-    end = "18:00"
-    name = "all Day"
-    days=['monday','tuesday','wednesday','thrusday','friday']
+    if(!req.body.name)
+        return res.status(400).send({message:"Name is required!"})
+    let {name,end,days,start,serviceId} =req.body
     if(compare3(start,end)){
         return res.status(400).send({message:"end time must be greater than start time!"})
     }
-    let s=start
+    const result=await Session.findOne({name:{$regex:name,$options:'i'},serviceId:req.body.serviceId})
+    if(result)
+        return res.status(400).send({message:"already exists!"})
+    //console.log(days)
+    const data=new Session({name:name,end:end,start:start,weeksApplied:days,duration:req.body.duration,serviceId:req.body.serviceId,slots:[]})
+    //console.log(data)
+    //await data.save()
+    let s=req.body.start
     arr.push(s)
-    while(compare(s,end)){
-        let tmp=duration(s,DURATION)
+    while(compare(s,req.body.end)){
+        let tmp=duration(s,req.body.duration)
         s=tmp
-        console.log("temp",tmp,"duration",DURATION)
+        console.log("slot",s)
         arr.push(s)
     }
-    if(compare2(s,end)){
-        for(let d = 0;d<services.length;d++){
+    if(compare2(s,req.body.end)){
+        let week=await WeekSlots.findOne({serviceId:req.body.serviceId})
+        if(!week)
+        week=new WeekSlots({monday:[],tuesday:[],wednesday:[],thrusday:[],friday:[],saturday:[],sunday:[],serviceId:req.body.serviceId})
+        //await week.save()
+        let slots=[]
+        let p=[];
+        for(let i=1;i<arr.length;i++){
+            p=req.body.days.map(async x=>{
+                let slot= new Slots({session: data._id, startTime: arr[i-1], endTime: arr[i]})
+                try{
+                    await slot.save()
+                }catch(err){
+                    console.log(err)
+                }
+                week[x].push(slot._id)
+                slots.push(slot._id)
+                data.slots.push(slot._id)
+            })
             
-            let serv = new Service({docid:docid,name:services[d],charge:200})
-            serv.save()
-
-            let data=new Session({name:name,end:end,start:start,weeksApplied:days,duration:DURATION,serviceId:serv._id,slots:[]})
-            let week=await WeekSlots.findOne({serviceId:serv._id})
-            if(!week)
-                week=new WeekSlots({monday:[],tuesday:[],wednesday:[],thrusday:[],friday:[],saturday:[],sunday:[],serviceId:serv._id})
-            //await week.save()
-            let slots=[]
-            let p=[];
-            for(let i=1;i<arr.length;i++){
-                p=days.map(async x=>{
-                    let slot= new Slots({session: data._id, startTime: arr[i-1], endTime: arr[i]})
-                    try{
-                        await slot.save()
-                    }catch(err){
-                        console.log(err)
-                    }
-                    week[x].push(slot._id)
-                    slots.push(slot._id)
-                    data.slots.push(slot._id)
-                })
         }
         Promise.all(p).then(async ()=>{
             await data.save()
             await week.save()
+            arr=[]
         })
-        }
-        
     }
     else{
         arr=[]
         return res.status(400).send({message:"session time must be a multiple of duration!"})
     }
     
-    res.send({message:"Successful!"})
+    res.send({message:"Successful!",session:data})
 }
 module.exports.delete_session = async (req,res)=>{
     if(!req.body.sid)
