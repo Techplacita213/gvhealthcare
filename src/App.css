@@ -1,0 +1,153 @@
+#hovSlot:hover{
+    background-color: #cecece;
+    padding:3px;
+    cursor: pointer;
+}
+
+.card{
+    width: 90%;
+    background-color: white;
+    padding:20px;
+    margin: auto;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.2)
+}
+
+.butt{
+    background-color: #1e4159;
+    padding:15px;
+    border:none;
+    color: white;
+    font-weight: 600;
+    margin:8px;
+    outline: none;
+}
+/* .butt:hover{
+    animation-name: buttFade;
+    animation-duration: 0.7s;
+    background-color: #007bff;
+} */
+@keyframes buttFade{
+    0%{
+        background-color: #f26438;
+    }
+    25%{
+        background-color: #f26438;
+    }
+    50%{
+        background-color: #007bff;
+    }
+    100%{
+        background-color: #007bff;
+    }
+}
+.grid{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.react-calendar{
+    border:none !important;
+    width: 100% !important;
+}
+
+@media only screen and (max-width: 700px) {
+    .grid{
+        display: grid;
+        grid-template-columns: auto;
+    }
+    #bookSum{
+        width: 100%;
+    }
+    #mainHome{
+        height: auto !important;
+    }
+  } 
+  @media only screen and (max-width: 650px) {
+    #home1{
+        width: 100% !important;
+        margin-right: 0% !important;
+        height:650px !important
+    }
+    #home2{
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .react-calendar{
+        max-width: 300px !important;
+    }
+  } 
+
+  @media only screen and (max-width: 1000px) {
+   
+    .react-calendar{
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    #slots{
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+  } 
+
+  @media only screen and (max-width: 1025px) {
+   
+   
+    .react-calendar{
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    #slots{
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+  } 
+  h4{
+      text-align: center;
+      margin: 8px;
+      font-size: 14px;
+      font-weight: normal;
+  }
+  .react-calendar__tile:disabled{
+      text-decoration: line-through !important;
+      background-color: unset !important;
+  }
+
+  div::-webkit-scrollbar-track {
+    box-shadow: none;
+    background-color: transparent; 
+    border:none;
+  }
+  div::-webkit-scrollbar-thumb{
+      background-color: #006dec;
+      border-radius: 10px;
+  }
+  div::-webkit-scrollbar{
+    width: 8px !important;
+  }
+
+.centerRow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.flex{
+    display: flex;
+}
+.flex-row{
+    flex-direction: row;
+}
+.items-center{
+    align-items: center;
+}
+.width-100{
+    width: 100%;
+}
+
+.button{
+    padding:8px 10px 8px 10px;
+    border:none;
+    font-size: 16px;
+    background-color: #1e4159;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
