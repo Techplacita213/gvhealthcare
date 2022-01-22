@@ -71,7 +71,7 @@ module.exports.get_all=async (req,res)=>{
 }
 
 module.exports.get_by_id=async (req,res)=>{
-    if(!req.body.id)
+    if(!req.body._id)
         return res.status(400).send({message:"id is required!"})
     const data=await Service.findOne({_id:req.body._id})
     if(!data)
