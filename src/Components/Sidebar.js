@@ -29,7 +29,7 @@ import {FaCalendarCheck,FaServicestack, FaCog, FaCalendar} from 'react-icons/fa'
              ${location.pathname === "/reports" ? "bg-gray-200":"text-darkgray"}
             `}
           >
-            <FaCalendar style={{marginRight:"20px"}}/><div>Reports</div>
+            <FaCalendar style={{marginRight:"20px"}}/><div>Fund Received Report</div>
           </Link>
           <Link
             to="/articles"

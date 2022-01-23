@@ -22,7 +22,7 @@ export default function Report() {
     return (
         <div className="w-full h-screen">
            <div className="w-full p-4 cursor-pointer flex flex-row items-center justify-between block  border-b-0 border  border-gray-200 text-grey-100 font-sm bg-gray-200">
-                <div>Reports</div>
+                <div>Fund Received Report</div>
             </div> 
             <div className="w-full p-4">
                 <form onSubmit={onSubmit}>
@@ -49,7 +49,7 @@ export default function Report() {
                         Service Name
                     </th>
                     <th className="pb-2">
-                        Revenue
+                        Fund Received
                     </th>
                 </tr>
                 {

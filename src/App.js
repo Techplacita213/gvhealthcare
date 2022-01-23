@@ -105,7 +105,7 @@ function Register({handleBack}){
             </div>
             <div className="w-full m-2 pl-1 flex flex-row items-center h-auto bg-white rounded-md" style={{border:"solid #757575 1px"}}>
                 {/* <img src={Email} width="22px" className="mr-1"/> */}
-                <input name="qualification" list="qualification" type="qualification" placeholder="qualification" required={true} onChange={onChangeHandler} value={stateLogin.qualification}  className=" h-11 w-full bg-transparent" style={{outline:"none"}}/>
+                <input name="qualification" list="qualification" type="qualification" placeholder="Specialization" required={true} onChange={onChangeHandler} value={stateLogin.qualification}  className=" h-11 w-full bg-transparent" style={{outline:"none"}}/>
                 <datalist id="qualification">
                     {/*all qualifications of doctor */}
 
