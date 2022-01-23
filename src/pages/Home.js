@@ -47,7 +47,7 @@ export default function Home() {
                     
                     <div className="input" >
                         <i class="fa fa-search " aria-hidden="true"></i>
-                            <input id='profession' type='text' placeholder='qualification' name='profession'
+                            <input id='profession' type='text' placeholder='Specialization' name='profession'
                             list='docdata' 
                             className="borderless-input"
                             onChange={onChangeHandler}

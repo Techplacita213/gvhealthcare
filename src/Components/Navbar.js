@@ -23,7 +23,7 @@ export default function Navbar() {
 :
 "https://admin.healthcaregv.com/"}>
                 <button className="button">
-                    Doctor Registeration
+                    Doctor Login / Registeration
                 </button>
             </a>
         </div>
